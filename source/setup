@@ -173,8 +173,8 @@ instpostfix()
 			cat /etc/group | grep -q '^postdrop:' || groupadd postdrop
 			id -u postfix || useradd postfix -g postfix -G mail -d /var/spool/postfix -s /sbin/nologin
 			chown root:root /var/spool/postfix
-			id -g maildata || groupadd maildata -g 60000
-			id -u maildata || useradd maildata -u 60000 -g maildata -d $MAILBOX_BASE -s /sbin/nologin -c "Mail data directory"
+			id -g maildata || groupadd maildata -g $MAILBOXGID
+			id -u maildata || useradd maildata -u $MAILBOXUID -g $MAILBOXGID -d $MAILBOX_BASE -s /sbin/nologin -c "Mail data directory"
 			if [ ! -f /usr/include/db.h ]; then
 				echo "Please install db*-devel!!!"
 				exit 1
@@ -195,8 +195,8 @@ instpostfix()
 				echo "Please use \"portsnap fetch\" and \"portsnap extract\" install ports tree!!"
 				exit
 			fi
-			id -g maildata || pw groupadd maildata -g 60000
-			id -u maildata || pw useradd maildata -u 60000 -g 60000 -d $MAILBOX_BASE -s /usr/sbin/nologin -c "Mail data directory"
+			id -g maildata || pw groupadd maildata -g $MAILBOXGID
+			id -u maildata || pw useradd maildata -u $MAILBOXUID -g $MAILBOXGID -d $MAILBOX_BASE -s /usr/sbin/nologin -c "Mail data directory"
 			cd /usr/ports/mail/postfix
 			mkdir -p /var/db/ports/postfix
 			cat << OPTIONS > /var/db/ports/postfix/options
