@@ -574,6 +574,10 @@ instauth()
 				mkdir -p ${LOCAL}/src
 				wget -P ${LOCAL}/src http://heanet.dl.sourceforge.net/project/courier/authlib/0.63.0/${AUTHDAEMON}.tar.bz2 || exit 1
 			fi
+			if [ ! -f /usr/lib/libdb.so ]; then
+				echo "Please install \"db4\" package!!!"
+				exit 1
+			fi
 			cd ${LOCAL}/src
 			tar jxf ${AUTHDAEMON}.tar.bz2 || exit 1
 			cd ${AUTHDAEMON}
