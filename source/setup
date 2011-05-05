@@ -885,7 +885,9 @@ Subject: Postfix setup install test mail.
 
 系统管理员，你好：
     这是一封测试邮件，如果您使用邮件客户端能收到这封邮件，就表示
-邮件系统已经成功安装好了，下面简单介绍一下邮件管理命令。
+邮件系统已经成功安装好了，您的操作系统是：
+`uname -a`
+    下面简单介绍一下邮件管理命令。
 postuseradm 
 帮助：
 /usr/local/bin/postuseradm {add|del|passwd|list} address [password]
