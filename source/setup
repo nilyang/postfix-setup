@@ -291,8 +291,8 @@ instmysql()
 				mkdir -p ${LOCAL}/src
 				wget -P ${LOCAL}/src http://mirrors.sohu.com/mysql/MySQL-5.1/${MYSQL}.tar.gz || exit 1
 			fi
-			if [ ! -f /usr/include/ncurses/curses.h ]; then
-				echo "Please install \"ncurses-devel\" package!!!"
+			if [ ! -f /usr/lib/libncurses.a ]; then
+				echo "Please install \"ncurses\" package!!!"
 				exit 1
 			fi
 			cd ${LOCAL}/src
