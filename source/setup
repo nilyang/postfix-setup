@@ -868,7 +868,7 @@ instadmshell()
 	mkdir -p $POSTFIXCONF/shell
 	mkdir -p /usr/local/bin
 	cat postuseradm | sed "s/_DOMAIN_/$DOMAIN/g" | sed "s,_MYSQL_,$MYSQLDIR/bin/mysql,g" | sed "s,_MAILBOX_BASE_,$MAILBOX_BASE,g" > $POSTFIXCONF/shell/postuseradm
-	cat postdomainadm | sed "s/_DOMAIN_/$DOMAIN/g" | sed "s,_MYSQL_,$MYSQLDIR/bin/mysql,g" > $POSTFIXCONF/shell/postdomainadm
+	cat postdomainadm | sed "s/_DOMAIN_/$DOMAIN/g" | sed "s,_MYSQL_,$MYSQLDIR/bin/mysql,g" | sed "s,_MAILBOX_BASE_,$MAILBOX_BASE,g" > $POSTFIXCONF/shell/postdomainadm
 	chown root $POSTFIXCONF/shell/postuseradm $POSTFIXCONF/shell/postdomainadm
 	chmod 555 $POSTFIXCONF/shell/postuseradm $POSTFIXCONF/shell/postdomainadm
 	rm -f /usr/local/bin/postuseradm /usr/local/bin/postdomainadm
