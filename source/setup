@@ -811,7 +811,7 @@ password = postfix
 hosts = localhost
 dbname = postfix
 table = users
-select_field = concat(maildir)
+select_field = concat(domain,'/',maildir)
 where_field = mail
 additional_conditions = and active = '1'
 SASLCONF
