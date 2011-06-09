@@ -64,7 +64,11 @@ case $ACT in
 		exit
 		;;
 	del)
+		USERDIR=$($MYSQL -u postfix -ppostfix postfix -e "SELECT homedir,maildir FROM users WHERE mail = \"${MAIL}\"" | tail -n1 | awk '{print $1"/"$2}')
 		$MYSQL -u postfix -ppostfix postfix -e "DELETE FROM users WHERE mail = \"${MAIL}\""
+		if [ -d $USERDIR ]; then
+			rm -rf $USERDIR
+		fi
 		exit
 		;;
 	passwd)
