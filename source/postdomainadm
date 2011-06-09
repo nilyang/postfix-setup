@@ -35,7 +35,7 @@ case $ACT in
 			echo "Already exists domain \"$DOMAIN\"!!!"
 			exit 1
 		fi
-		$MYSQL -u postfix -ppostfix postfix -e "INSERT INTO \`domains\` (domain,transport,enabled) VALUES (\"$DOMAIN\",\"virtual:\",1);"
+		$MYSQL -u postfix -ppostfix postfix -e "INSERT INTO \`domains\` (domain,transport,active) VALUES (\"$DOMAIN\",\"virtual:\",1);"
 		exit
 		;;
 	del)
