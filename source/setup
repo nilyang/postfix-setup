@@ -359,6 +359,7 @@ DROP TABLE IF EXISTS \`domains\`;
 CREATE TABLE \`domains\` (
   \`id\` smallint(6) NOT NULL AUTO_INCREMENT,
   \`domain\` varchar(120) NOT NULL DEFAULT '',
+  \`domaindir\` varchar(120) NOT NULL DEFAULT '${MAILBOX_BASE}/${DOMAIN}',
   \`transport\` varchar(120) NOT NULL DEFAULT 'virtual:',
   \`active\` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (\`id\`)
