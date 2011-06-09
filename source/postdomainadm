@@ -40,7 +40,7 @@ case $ACT in
 		exit
 		;;
 	del)
-		DOMAINDIR=$($MYSQL -u postfix -ppostfix postfix -e "SELECT domaindir FROM domains WHERE domain = \"${DOMAIN}\"")
+		DOMAINDIR=$($MYSQL -u postfix -ppostfix postfix -e "SELECT domaindir FROM domains WHERE domain = \"${DOMAIN}\"" | tail -n1)
 		$MYSQL -u postfix -ppostfix postfix -e "DELETE FROM domains WHERE domain = \"${DOMAIN}\""
 		$MYSQL -u postfix -ppostfix postfix -e "DELETE FROM users WHERE domain = \"${DOMAIN}\""
 		if [ -d $DOMAINDIR ]; then
