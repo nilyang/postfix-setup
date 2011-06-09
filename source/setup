@@ -364,7 +364,7 @@ CREATE TABLE \`domains\` (
   \`active\` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (\`id\`)
 ) ENGINE=MyISAM;
-INSERT INTO \`domains\` VALUES (1,'$DOMAIN','virtual:',1);
+INSERT INTO \`domains\` VALUES (1,'$DOMAIN','${MAILBOX_BASE}/${DOMAIN}','virtual:',1);
 DROP TABLE IF EXISTS \`users\`;
 CREATE TABLE \`users\` (
   \`id\` smallint(6) NOT NULL AUTO_INCREMENT,
