@@ -12,6 +12,7 @@ ACT=$1
 DOMAIN=$2
 
 MYSQL=_MYSQL_
+MAILBOX_BASE=_MAILBOX_BASE_
 
 help()
 {
@@ -35,7 +36,7 @@ case $ACT in
 			echo "Already exists domain \"$DOMAIN\"!!!"
 			exit 1
 		fi
-		$MYSQL -u postfix -ppostfix postfix -e "INSERT INTO \`domains\` (domain,transport,active) VALUES (\"$DOMAIN\",\"virtual:\",1);"
+		$MYSQL -u postfix -ppostfix postfix -e "INSERT INTO \`domains\` (domain,domaindir,transport,active) VALUES (\"$DOMAIN\",\"${MAILBOX_BASE}/${DOMAIN}\",\"virtual:\",1);"
 		exit
 		;;
 	del)
