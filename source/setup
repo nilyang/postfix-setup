@@ -173,8 +173,8 @@ instpostfix()
 			cat /etc/group | grep -q '^postdrop:' || groupadd postdrop
 			id -u postfix || useradd postfix -g postfix -G mail -d /var/spool/postfix -s /sbin/nologin
 			chown root:root /var/spool/postfix
-			id -g maildata || groupadd maildata -g $MAILBOXGID
-			id -u maildata || useradd maildata -u $MAILBOXUID -g $MAILBOXGID -d $MAILBOX_BASE -s /sbin/nologin -c "Mail data directory"
+			id -g maildata > /dev/null || groupadd maildata -g $MAILBOXGID
+			id -u maildata > /dev/null || useradd maildata -u $MAILBOXUID -g $MAILBOXGID -d $MAILBOX_BASE -s /sbin/nologin -c "Mail data directory"
 			if [ ! -f /usr/include/db.h ]; then
 				echo "Please install db*-devel!!!"
 				exit 1
