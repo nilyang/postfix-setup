@@ -656,7 +656,7 @@ DEFAULT_DOMAIN		$DOMAIN
 MYSQL_UID_FIELD		uid
 MYSQL_GID_FIELD		gid
 MYSQL_LOGIN_FIELD	mail
-MYSQL_HOME_FIELD	concat(homedir,'/')
+MYSQL_HOME_FIELD	concat(\'${MAILBOX_BASE}/\')
 MYSQL_NAME_FIELD	username
 MYSQL_MAILDIR_FIELD	maildir
 AUTHLIBCONF
@@ -811,7 +811,7 @@ password = postfix
 hosts = localhost
 dbname = postfix
 table = users
-select_field = concat(domain,'/',maildir)
+select_field = maildir
 where_field = mail
 additional_conditions = and active = '1'
 SASLCONF
