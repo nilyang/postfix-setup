@@ -57,7 +57,7 @@ case $ACT in
 			echo "Exists \"$MAIL\"."
 			exit 1
 		fi
-		$MYSQL -u postfix -ppostfix postfix -e "INSERT INTO users (mail,username,domain,homedir,maildir,password) VALUES (\"${MAIL}\",\"${USER}\",\"${DOMAIN}\",\"${MAILBOX_BASE}/${DOMAIN}\",\"${USER}/\", encrypt(\"${PASSWD}\"))"
+		$MYSQL -u postfix -ppostfix postfix -e "INSERT INTO users (mail,username,domain,homedir,maildir,password) VALUES (\"${MAIL}\",\"${USER}\",\"${DOMAIN}\",\"${DOMAIN}/${USER}\",\"${DOMAIN}/${USER}/Maildir/\", encrypt(\"${PASSWD}\"))"
 		if [ "$PASSWD" = "iceblood" ]; then
 			echo "$MAIL default password is \"${PASSWD}\""
 		fi
