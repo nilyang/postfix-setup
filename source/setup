@@ -1027,13 +1027,6 @@ SYS_CRYPT_TYPE = crypt
 SYS_MYSQL_SOCKET = \/tmp\/mysql.sock
 " | sed 's/^SYS_MYSQL_TABLE = mailbox/SYS_MYSQL_TABLE = users/' \
 	| sed 's/^SYS_MYSQL_ATTR_USERNAME = username/SYS_MYSQL_ATTR_USERNAME = mail/' > $EXTMAILDIR/webmail.cf
-	cat $EXTMAILDIR/libs/Ext/App.pm \
-		| sed "/my \$prepend = (/c\\
-\ \ \ \ \ \ \ \ my \$prepend = (\$a->{INFO}->{HOME}? \$a->{INFO}->{HOME} : \"\");
-" | sed "/HOME => /c\\
-\ \ \ \ \ \ \ \ \ \ \ \ HOME => \$a->{INFO}->{HOME},
-" >$EXTMAILDIR/libs/Ext/App.pm.new
-	mv $EXTMAILDIR/libs/Ext/App.pm.new $EXTMAILDIR/libs/Ext/App.pm
 	cat << EXTCONF
 Please edit "httpd.conf":
 ==================================
