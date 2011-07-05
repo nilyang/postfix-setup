@@ -380,6 +380,8 @@ CREATE TABLE \`users\` (
   \`clearpwd\` varchar(128) NOT NULL DEFAULT 'ChangeMe',
   \`password\` varchar(128) NOT NULL DEFAULT 'sdtrusfX0Jj66',
   \`quota\` varchar(255) NOT NULL DEFAULT '',
+  \`question\` varchar(255) NOT NULL DEFAULT '',
+  \`answer\` varchar(255) NOT NULL DEFAULT '',
   \`procmailrc\` varchar(128) NOT NULL DEFAULT '',
   \`spamassassinrc\` varchar(128) NOT NULL DEFAULT '',
   PRIMARY KEY (\`id\`,\`mail\`),
