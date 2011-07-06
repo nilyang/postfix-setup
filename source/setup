@@ -442,11 +442,7 @@ instsasl()
 				--enable-plain --enable-login \
 				--with-plugindir=$SASLDIR/lib/sasl2 \
 				--with-configdir=$SASLDIR/lib/sasl2 \
-				--with-authdaemond=yes \
-				--with-mysql=$MYSQLDIR \
-				--with-mysql-includes=$MYSQLDIR/include/mysql \
-				--with-mysql-libs=$MYSQLDIR/lib/mysql && make && make install || exit 1
-				#--enable-sql \
+				--with-authdaemond=yes && make && make install || exit 1
 			cat /etc/ld.so.conf /etc/ld.so.conf.d/*.conf | grep -q "^{$SASLDIR}/lib$" || echo "$SASLDIR/lib" > /etc/ld.so.conf.d/000sasl.conf
 			cat /etc/ld.so.conf /etc/ld.so.conf.d/*.conf | grep -q "^${SASLDIR}/lib/sasl2$" || echo "$SASLDIR/lib/sasl2" >> /etc/ld.so.conf.d/000sasl.conf
 			ldconfig
@@ -470,7 +466,7 @@ instsasl()
 			cat << OPTIONS > /var/db/ports/cyrus-sasl2/options
 _OPTIONS_READ=${SASL}_`cat /usr/ports/security/cyrus-sasl2/Makefile | grep '^PORTREVISION' | awk -F'=' '{print $2}' | tr -d '\t '`
 WITHOUT_BDB=true
-WITH_MYSQL=true
+WITHOUT_MYSQL=true
 WITHOUT_PGSQL=true
 WITHOUT_SQLITE=true
 WITHOUT_DEV_URANDOM=true
