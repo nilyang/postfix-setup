@@ -379,7 +379,7 @@ CREATE TABLE \`users\` (
   \`changepasswd\` tinyint(3) unsigned NOT NULL DEFAULT '1',
   \`clearpwd\` varchar(128) NOT NULL DEFAULT 'ChangeMe',
   \`password\` varchar(128) NOT NULL DEFAULT 'sdtrusfX0Jj66',
-  \`quota\` varchar(255) NOT NULL DEFAULT '',
+  \`quota\` mediumint(16) NOT NULL DEFAULT '0',
   \`question\` varchar(255) NOT NULL DEFAULT '',
   \`answer\` varchar(255) NOT NULL DEFAULT '',
   \`procmailrc\` varchar(128) NOT NULL DEFAULT '',
