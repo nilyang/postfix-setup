@@ -1051,6 +1051,7 @@ instperlmod()
 		tar xzf Unix-Syslog-1.1.tar.gz || exit 1
 		cd Unix-Syslog-1.1
 		perl Makefile.PL && make && make install || exit 1
+		rm -rf ${LOCAL}/src/Unix-Syslog-1.1
 	fi
 	perl -MStorable -e "print \"\"" || wget -P ${LOCAL}/src http://mirrors.163.com/cpan/modules/by-module/Storable/Storable-2.25.tar.gz || exit 1
 	if [ -f ${LOCAL}/src/Storable-2.25.tar.gz ]; then
@@ -1058,6 +1059,7 @@ instperlmod()
 		tar xzf Storable-2.25.tar.gz || exit 1
 		cd Storable-2.25
 		perl Makefile.PL && make && make install || exit 1
+		rm -rf ${LOCAL}/src/Storable-2.25
 	fi
 	perl -MDBI -e "print \"\"" || wget -P ${LOCAL}/src http://mirrors.163.com/cpan/modules/by-module/DBI/DBI-1.616.tar.gz || exit 1
 	if [ -f ${LOCAL}/src/DBI-1.616.tar.gz ]; then
@@ -1065,6 +1067,7 @@ instperlmod()
 		tar xzf DBI-1.616.tar.gz || exit 1
 		cd DBI-1.616
 		perl Makefile.PL && make && make install || exit 1
+		rm -rf ${LOCAL}/src/DBI-1.616
 	fi
 	perl -MDBD::mysql -e "print \"\"" || wget -P ${LOCAL}/src http://mirrors.163.com/cpan/modules/by-module/DBD/DBD-mysql-4.018.tar.gz || exit 1
 	if [ -f ${LOCAL}/src/DBD-mysql-4.018.tar.gz ]; then
@@ -1077,6 +1080,7 @@ instperlmod()
 		tar xzf DBD-mysql-4.018.tar.gz || exit 1
 		cd DBD-mysql-4.018
 		perl Makefile.PL && make && make install || exit 1
+		rm -rf ${LOCAL}/src/DBD-mysql-4.018
 	fi
 }
 
